@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESUME TITLE</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f5f7;
+      color: #1f2937;
+      padding: 28px;
+    }
+
+    .page {
+      width: min(1400px, 100%);
+      min-height: calc(100vh - 56px);
+      margin: auto;
+      padding: 36px 44px;
+      border: 1.5px solid #1d3557;
+      border-radius: 28px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* LEFT SIDE */
+    .left {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 10px 20px 18px;
+    }
+
+    .intro {
+      margin-bottom: 34px;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: 100%;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-row .eyebrow {
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+
+    .top-social {
+      margin: 0;
+      gap: 7px;
+    }
+
+    .top-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+    }
+
+    .top-social a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.05;
+      color: #172554;
+      margin-bottom: 12px;
+    }
+
+    .role {
+      font-size: 20px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .details {
+      display: grid;
+      gap: 22px;
+      margin-bottom: 38px;
+    }
+
+    .detail {
+      border-bottom: 1px solid #dbe1e8;
+      padding-bottom: 14px;
+    }
+
+    .detail-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .detail-value {
+      font-size: 17px;
+      color: #1e293b;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 8px;
+    }
+
+    .skill {
+      padding: 8px 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 999px;
+      font-size: 13px;
+      background: #f8fafc;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      background: #fff;
+      color: #172554;
+      text-decoration: none;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+
+    .social-links a svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
+
+    .social-links a:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+    }
+
+    .download {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      background: #172554;
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .download:hover {
+      background: #0f1d42;
+      transform: translateY(-1px);
+    }
+
+    /* RIGHT SIDE */
+    .resume-card {
+      height: min(820px, calc(100vh - 72px));
+      min-height: 680px;
+      min-width: 0;
+      border: 1.5px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      background: #fbfcfe;
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+    }
+
+    .resume-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 46px;
+      padding: 0 6px 12px;
+      border-bottom: 1px solid #d7dee7;
+      margin-bottom: 10px;
+    }
+
+    .resume-title-wrap {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .resume-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #172554;
+      white-space: nowrap;
+    }
+
+    .resume-status {
+      margin-top: 3px;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .resume-frame {
+      flex: 1;
+      min-height: 680px;
+      width: 100%;
+      border: none;
+      border-radius: 7px;
+      background: white;
+    }
+
+
+    .pdf-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex: 0 0 auto;
+      padding: 0;
+    }
+
+    .pdf-nav,
+    .pdf-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pdf-toolbar button,
+    .pdf-actions a {
+      width: 34px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      background: white;
+      color: #172554;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .pdf-toolbar button:hover,
+    .pdf-actions a:hover {
+      background: #f1f5f9;
+    }
+
+    .pdf-toolbar button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    #pageInfo,
+    #zoomInfo {
+      min-width: 48px;
+      text-align: center;
+      font-size: 12px;
+      color: #475569;
+    }
+
+    .pdf-viewport {
+      flex: 1 1 auto;
+      min-height: 0;
+      min-width: 0;
+      width: 100%;
+      overflow: auto;
+      overscroll-behavior: contain;
+      border: 1px solid #e2e8f0;
+      border-radius: 7px;
+      background: #fff;
+      padding: 0;
+      scroll-behavior: auto;
+      scrollbar-gutter: stable;
+    }
+
+    .pdf-stage {
+      width: max-content;
+      min-width: 100%;
+      min-height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    .pdf-viewport::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .pdf-viewport::-webkit-scrollbar-track {
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .pdf-viewport::-webkit-scrollbar-thumb {
+      background: #aab5c3;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+
+    .pdf-viewport {
+      scrollbar-width: auto;
+    }
+
+    #pdfCanvas {
+      display: block;
+      flex: 0 0 auto;
+      background: white;
+      box-shadow: none;
+      image-rendering: auto;
+    }
+
+    .pdf-message {
+      min-height: 200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      body {
+        padding: 14px;
+      }
+
+      .page {
+        min-height: auto;
+        padding: 25px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        border-radius: 20px;
+      }
+
+      .left {
+        padding: 10px 5px;
+      }
+
+      .resume-card {
+        height: 700px;
+        min-height: 600px;
+      }
+
+      .resume-header {
+        align-items: flex-start;
+      }
+
+      .eyebrow-row {
+        gap: 10px;
+      }
+
+      .top-social a {
+        width: 30px;
+        height: 30px;
+      }
+
+      .resume-status {
+        display: none;
+      }
+
+      .pdf-toolbar {
+        gap: 5px;
+      }
+
+      .pdf-viewport {
+        min-height: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <!-- LEFT SIDE -->
+    <section class="left">
+
+      <div class="intro">
+        <div class="eyebrow-row">
+          <div class="eyebrow">DevOps Engineer</div>
+
+          <div class="social-links top-social" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/mukulsengar/" target="_blank"
+               rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.68H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45H7.1V8.98H3.54v11.47Z"/>
+              </svg>
+            </a>
+
+            <a href="https://github.com/mukul-329" target="_blank"
+               rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.25.78-.55v-2.03c-3.18.69-3.85-1.34-3.85-1.34-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.73-1.54-2.54-.29-5.21-1.27-5.21-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.12 1.17A10.85 10.85 0 0 1 12 6.06c.97 0 1.94.13 2.85.38 2.17-1.48 3.12-1.17 3.12-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.23 5.65.41.35.78 1.04.78 2.1v3.11c0 .3.21.65.79.54A11.3 11.3 0 0 0 12 .7Z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:mukulsengar329@gmail.com" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <h1>Hi, I am Mukul!</h1>
+        <p class="role">Immediate Joiner</p>
+      </div>
+
+      <div class="details">
+
+        <div class="detail">
+          <div class="detail-label">About</div>
+          <div class="detail-value">
+            Cloud and DevOps professional with experience in AWS,
+            Terraform, Docker, Kubernetes and CI/CD.
+          </div>
+        </div>
+
+        <div class="detail">
+          <div class="detail-label">Current Focus</div>
+          <div class="detail-value">
+            AWS · DevOps · Infrastructure · Automation
+          </div>
+        </div>
+
+        <div class="detail">
+          <div class="detail-label">Skills</div>
+          <div class="skills">
+            <span class="skill">AWS</span>
+            <span class="skill">Terraform</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Kubernetes</span>
+            <span class="skill">GitHub Actions</span>
+            <span class="skill">Linux</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Replace resume.pdf with your actual PDF filename -->
+      <a class="download" href="resume.pdf" download="Mukul Anand Sengar.pdf" title="Download Mukul Anand Sengar resume">
+        ↓ &nbsp; Download Resume
+      </a>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="resume-card">
+
+      <div class="resume-header">
+        <div class="resume-title-wrap">
+          <div class="resume-title">My Resume</div>
+          <div class="resume-status" id="status">High-resolution PDF Preview</div>
+        </div>
+
+        <div class="pdf-toolbar">
+          <div class="pdf-nav">
+            <button id="prevPage" type="button" title="Previous page">←</button>
+            <span id="pageInfo">1 / 1</span>
+            <button id="nextPage" type="button" title="Next page">→</button>
+          </div>
+
+          <div class="pdf-actions">
+            <button id="zoomOut" type="button" title="Zoom out">−</button>
+            <span id="zoomInfo">100%</span>
+            <button id="zoomIn" type="button" title="Zoom in">+</button>
+            <button id="printPdf" type="button" title="Print resume">🖨</button>
+            <a id="downloadPdf" href="resume.pdf"
+               download="Mukul Anand Sengar.pdf"
+               title="Download Mukul Anand Sengar resume">↓</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="pdfViewport" class="pdf-viewport" tabindex="0">
+        <div class="pdf-stage">
+          <div id="pdfLoading" class="pdf-message">
+            Loading resume…
+          </div>
+          <canvas id="pdfCanvas" aria-label="Resume preview"></canvas>
+        </div>
+      </div>
+
+
+
+    </section>
+
+  </main>
+
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"
+          type="module"></script>
+
+  <script type="module">
+    import * as pdfjsLib from
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+
+    const canvas = document.getElementById("pdfCanvas");
+    const ctx = canvas.getContext("2d");
+    const viewport = document.getElementById("pdfViewport");
+    const loading = document.getElementById("pdfLoading");
+    const prevPage = document.getElementById("prevPage");
+    const nextPage = document.getElementById("nextPage");
+    const pageInfo = document.getElementById("pageInfo");
+    const zoomOut = document.getElementById("zoomOut");
+    const zoomIn = document.getElementById("zoomIn");
+    const zoomInfo = document.getElementById("zoomInfo");
+    const printPdf = document.getElementById("printPdf");
+    const downloadPdf = document.getElementById("downloadPdf");
+    const status = document.getElementById("status");
+
+    let pdfDoc = null;
+    let currentPage = 1;
+    let scale = 1;
+    let pdfUrl = "resume.pdf";
+
+    async function loadPdf(source) {
+      try {
+        loading.style.display = "flex";
+        canvas.style.display = "none";
+        const loadingTask = pdfjsLib.getDocument(source);
+        pdfDoc = await loadingTask.promise;
+
+        currentPage = 1;
+        status.textContent = `${pdfDoc.numPages} page${pdfDoc.numPages === 1 ? "" : "s"}`;
+        pageInfo.textContent = `1 / ${pdfDoc.numPages}`;
+
+        await renderPage(currentPage);
+      } catch (error) {
+        console.error(error);
+        pdfDoc = null;
+        canvas.style.display = "none";
+        loading.style.display = "none";
+        loading.textContent = "Unable to load resume.pdf";
+        loading.style.display = "flex";
+        status.textContent = "Resume unavailable";
+      }
+    }
+
+    function centerPreview(previousCenterX = null) {
+      requestAnimationFrame(() => {
+        if (previousCenterX === null) {
+          viewport.scrollLeft =
+            Math.max(0, (viewport.scrollWidth - viewport.clientWidth) / 2);
+          return;
+        }
+
+        // Keep the same point of the resume under the viewer's center
+        // when zoom changes.
+        const newCenter = viewport.scrollWidth / 2;
+        viewport.scrollLeft = Math.max(
+          0,
+          newCenter - previousCenterX
+        );
+      });
+    }
+
+    async function renderPage(pageNumber) {
+      if (!pdfDoc) return;
+
+      const page = await pdfDoc.getPage(pageNumber);
+
+      // Fit the page to the available width, then render at 2x device
+      // resolution (up to 3x) so text remains crisp on Retina/high-DPI screens.
+      const baseViewport = page.getViewport({ scale: 1 });
+      const availableWidth = Math.max(320, viewport.clientWidth - 20);
+
+      const fitScale = availableWidth / baseViewport.width;
+      const cssScale = Math.max(0.8, Math.min(2.0, fitScale * scale));
+      const outputScale = Math.min(window.devicePixelRatio || 1, 4);
+
+      const cssViewport = page.getViewport({ scale: cssScale });
+      const renderViewport = page.getViewport({
+        scale: cssScale * outputScale
+      });
+
+      // The canvas has a larger backing buffer than its displayed size.
+      // This is what keeps small PDF text sharp.
+      canvas.width = Math.floor(renderViewport.width);
+      canvas.height = Math.floor(renderViewport.height);
+      canvas.style.width = `${Math.floor(cssViewport.width)}px`;
+      canvas.style.height = `${Math.floor(cssViewport.height)}px`;
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      await page.render({
+        canvasContext: ctx,
+        viewport: renderViewport
+      }).promise;
+
+      loading.style.display = "none";
+      canvas.style.display = "block";
+
+      pageInfo.textContent = `${currentPage} / ${pdfDoc.numPages}`;
+      zoomInfo.textContent = `${Math.round(scale * 100)}%`;
+
+      prevPage.disabled = currentPage <= 1;
+      nextPage.disabled = currentPage >= pdfDoc.numPages;
+
+      centerPreview();
+    }
+
+    prevPage.addEventListener("click", async () => {
+      if (!pdfDoc || currentPage <= 1) return;
+      currentPage--;
+      await renderPage(currentPage);
+    });
+
+    nextPage.addEventListener("click", async () => {
+      if (!pdfDoc || currentPage >= pdfDoc.numPages) return;
+      currentPage++;
+      await renderPage(currentPage);
+    });
+
+    async function changeZoom(nextScale) {
+      if (!pdfDoc) return;
+
+      // Remember the document point currently at the center of the viewport.
+      const viewportCenter =
+        viewport.scrollLeft + viewport.clientWidth / 2;
+
+      const contentRatio =
+        viewport.scrollWidth > 0
+          ? viewportCenter / viewport.scrollWidth
+          : 0.5;
+
+      scale = Math.max(0.6, Math.min(2.5, nextScale));
+      await renderPage(currentPage);
+
+      requestAnimationFrame(() => {
+        // Restore the same relative horizontal position after re-render.
+        const targetCenter = viewport.scrollWidth * contentRatio;
+        viewport.scrollLeft = Math.max(
+          0,
+          targetCenter - viewport.clientWidth / 2
+        );
+      });
+    }
+
+    zoomOut.addEventListener("click", () => {
+      changeZoom(scale - 0.1);
+    });
+
+    zoomIn.addEventListener("click", () => {
+      changeZoom(scale + 0.1);
+    });
+
+    printPdf.addEventListener("click", async () => {
+      if (!pdfDoc) return;
+
+      // Build a print-only document from the PDF.js-rendered pages.
+      // Setting the document title makes Chrome/Edge use this as the
+      // suggested filename when the user chooses "Save to PDF".
+      const printWindow = window.open("", "_blank");
+
+      if (!printWindow) {
+        alert("Please allow pop-ups for this site to print the resume.");
+        return;
+      }
+
+      printWindow.document.open();
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Mukul Anand Sengar</title>
+          <style>
+            @page {
+              size: auto;
+              margin: 0;
+            }
+
+            html, body {
+              margin: 0;
+              padding: 0;
+              background: white;
+            }
+
+            .print-page {
+              width: 100%;
+              min-height: 100vh;
+              display: flex;
+              align-items: flex-start;
+              justify-content: center;
+              page-break-after: always;
+              break-after: page;
+              overflow: hidden;
+            }
+
+            .print-page:last-child {
+              page-break-after: auto;
+              break-after: auto;
+            }
+
+            canvas {
+              display: block;
+              max-width: 100%;
+              height: auto;
+            }
+          </style>
+        </head>
+        <body>
+          <div id="printPages"></div>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+
+      const printPages = printWindow.document.getElementById("printPages");
+
+      try {
+        for (let pageNumber = 1; pageNumber <= pdfDoc.numPages; pageNumber++) {
+          const page = await pdfDoc.getPage(pageNumber);
+
+          // Render at high resolution for clean printed output.
+          const baseViewport = page.getViewport({ scale: 1 });
+          const printScale = 2.5;
+          const renderViewport = page.getViewport({
+            scale: printScale
+          });
+
+          const pageWrapper = printWindow.document.createElement("div");
+          pageWrapper.className = "print-page";
+
+          const printCanvas = printWindow.document.createElement("canvas");
+          printCanvas.width = Math.ceil(renderViewport.width);
+          printCanvas.height = Math.ceil(renderViewport.height);
+
+          pageWrapper.appendChild(printCanvas);
+          printPages.appendChild(pageWrapper);
+
+          const printContext = printCanvas.getContext("2d");
+
+          await page.render({
+            canvasContext: printContext,
+            viewport: renderViewport
+          }).promise;
+        }
+
+        printWindow.focus();
+
+        // Give the browser a moment to finish laying out all pages before
+        // opening the native print dialog.
+        setTimeout(() => {
+          printWindow.print();
+        }, 250);
+
+      } catch (error) {
+        console.error("Print failed:", error);
+        printWindow.close();
+        alert("Unable to prepare the resume for printing.");
+      }
+    });
+
+    // Shift + mouse wheel gives smooth horizontal scrolling.
+    // Plain wheel keeps normal vertical scrolling.
+    viewport.addEventListener("wheel", (event) => {
+      if (event.shiftKey && Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        viewport.scrollLeft += event.deltaY;
+      }
+    }, { passive: false });
+
+    // Arrow keys scroll horizontally when the viewer is focused.
+    viewport.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        viewport.scrollLeft -= 80;
+      } else if (event.key === "ArrowRight") {
+        viewport.scrollLeft += 80;
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (pdfDoc) renderPage(currentPage);
+    });
+
+    // Load resume.pdf automatically when the page opens.
+    loadPdf(pdfUrl);
+  </script>
+
+</body>
+</html>
