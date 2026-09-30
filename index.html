@@ -840,7 +840,7 @@
 
     <div class="actions">
       <a class="download"
-         href="resume.pdf"
+         href="./resume.pdf"
          download="Mukul Anand Sengar.pdf"
          title="Download Mukul Anand Sengar resume">
         ↓ &nbsp; Download Resume
@@ -1165,62 +1165,7 @@
         <body>
           <div id="printPages"></div>
         
-  <script>
-    /*
-      Force the portfolio Download Resume button to save the PDF
-      with the exact filename: Mukul Anand Sengar.pdf
-    */
-    (() => {
-      const resumeDownload = document.querySelector(".download");
-      if (!resumeDownload) return;
-
-      resumeDownload.addEventListener("click", async (event) => {
-        event.preventDefault();
-
-        const resumeUrl = new URL("./resume.pdf", window.location.href).href;
-        const fileName = "Mukul Anand Sengar.pdf";
-
-        try {
-          const response = await fetch(resumeUrl, {
-            method: "GET",
-            credentials: "same-origin",
-            cache: "no-store"
-          });
-
-          if (!response.ok) {
-            throw new Error(`Resume download failed: HTTP ${response.status}`);
-          }
-
-          const blob = await response.blob();
-          const blobUrl = URL.createObjectURL(blob);
-
-          const downloadLink = document.createElement("a");
-          downloadLink.href = blobUrl;
-          downloadLink.download = fileName;
-          downloadLink.style.display = "none";
-
-          document.body.appendChild(downloadLink);
-          downloadLink.click();
-          downloadLink.remove();
-
-          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
-        } catch (error) {
-          console.error("Resume download failed:", error);
-
-          // Fallback to the normal browser download behavior.
-          const fallback = document.createElement("a");
-          fallback.href = resumeUrl;
-          fallback.download = fileName;
-          fallback.style.display = "none";
-          document.body.appendChild(fallback);
-          fallback.click();
-          fallback.remove();
-        }
-      });
-    })();
-  </script>
-
-</body>
+        </body>
         </html>
       `);
       printWindow.document.close();
@@ -1295,6 +1240,43 @@
 
     // Load resume.pdf automatically when the page opens.
     loadPdf(pdfUrl);
+  </script>
+  <script>
+    /* Force the portfolio download button to save the PDF with its intended filename. */
+    (() => {
+      const resumeDownload = document.querySelector(".download");
+      if (!resumeDownload) return;
+
+      resumeDownload.addEventListener("click", async (event) => {
+        event.preventDefault();
+        const resumeUrl = new URL("./resume.pdf", window.location.href).href;
+        const fileName = "Mukul Anand Sengar.pdf";
+
+        try {
+          const response = await fetch(resumeUrl, { method: "GET", credentials: "same-origin", cache: "no-store" });
+          if (!response.ok) throw new Error(`Resume download failed: HTTP ${response.status}`);
+
+          const blobUrl = URL.createObjectURL(await response.blob());
+          const downloadLink = document.createElement("a");
+          downloadLink.href = blobUrl;
+          downloadLink.download = fileName;
+          downloadLink.style.display = "none";
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          downloadLink.remove();
+          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+        } catch (error) {
+          console.error("Resume download failed:", error);
+          const fallback = document.createElement("a");
+          fallback.href = resumeUrl;
+          fallback.download = fileName;
+          fallback.style.display = "none";
+          document.body.appendChild(fallback);
+          fallback.click();
+          fallback.remove();
+        }
+      });
+    })();
   </script>
 </body>
 </html>
