@@ -1,198 +1,472 @@
 <!DOCTYPE html>
-<meta property="og:title" content="Mukul Sengar | DevOps Engineer">
-<meta property="og:description" content="DevOps Engineer with 4 years of experience in Cloud, Automation and Infrastructure.">
-<meta property="og:image" content="https://mukul-329.github.io/resume-preview.png">
-<meta property="og:url" content="https://mukul-329.github.io/">
-<meta property="og:type" content="website">
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RESUME TITLE</title>
+  <title>Mukul Sengar | DevOps Engineer</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    :root {
+      --navy: #172b61;
+      --blue: #2e86d8;
+      --muted: #587096;
+      --line: #d9e3ef;
+      --chip-border: #c9d9eb;
+      --soft-blue: #eaf4ff;
+      --white: #ffffff;
+    }
+
+    html,
     body {
-      min-height: 100vh;
+      min-height: 100%;
+    }
+
+    body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f5f7;
-      color: #1f2937;
-      padding: 28px;
+      color: var(--navy);
+      background: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ===== BACKGROUND ===== */
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -140px;
+      left: -110px;
+      width: 470px;
+      height: 360px;
+      background:
+        radial-gradient(
+          ellipse at 25% 20%,
+          #dceeff 0 42%,
+          #eef7ff 43% 65%,
+          transparent 66%
+        );
+      border-radius: 0 0 65% 0;
+      transform: rotate(-10deg);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      right: -170px;
+      bottom: -190px;
+      width: 540px;
+      height: 440px;
+      background:
+        radial-gradient(
+          ellipse at 70% 70%,
+          #dceeff 0 38%,
+          #eef7ff 39% 58%,
+          transparent 59%
+        );
+      border-radius: 70% 0 0 0;
+      transform: rotate(-12deg);
+      pointer-events: none;
+      z-index: -2;
     }
 
     .page {
-      width: min(1400px, 100%);
-      min-height: calc(100vh - 56px);
-      margin: auto;
-      padding: 36px 44px;
-      border: 1.5px solid #1d3557;
-      border-radius: 28px;
-      background: #fff;
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 48px;
-      align-items: start;
+      position: relative;
+      width: min(1200px, calc(100% - 48px));
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 54px 58px 48px;
+      overflow: hidden;
     }
 
-    /* LEFT SIDE */
-    .left {
-      display: flex;
-      flex-direction: column;
-      padding: 20px 10px 20px 18px;
+    /* subtle dotted decoration */
+    .dots {
+      position: absolute;
+      width: 84px;
+      height: 100px;
+      background-image: radial-gradient(#79b8ee 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      opacity: .75;
+      pointer-events: none;
     }
+
+    .dots.top-right {
+      top: 18px;
+      right: 12px;
+    }
+
+    .dots.bottom-left {
+      bottom: 28px;
+      left: 8px;
+    }
+
+    /* decorative curved dashed line */
+    .curve {
+      position: absolute;
+      top: -55px;
+      left: 165px;
+      width: 180px;
+      height: 100px;
+      border-top: 2px dashed #7db9ef;
+      border-radius: 50%;
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    /* ===== HEADER ===== */
 
     .intro {
-      margin-bottom: 34px;
+      position: relative;
+      z-index: 1;
     }
 
-    .eyebrow-row {
+    .top-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      width: 100%;
-      margin-bottom: 14px;
-    }
-
-    .eyebrow-row .eyebrow {
-      margin-bottom: 0;
-      white-space: nowrap;
-    }
-
-    .top-social {
-      margin: 0;
-      gap: 7px;
-    }
-
-    .top-social a {
-      width: 32px;
-      height: 32px;
-      border-radius: 7px;
-    }
-
-    .top-social a svg {
-      width: 16px;
-      height: 16px;
+      gap: 24px;
     }
 
     .eyebrow {
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 17px;
+      letter-spacing: 3.2px;
       text-transform: uppercase;
-      color: #64748b;
-      margin-bottom: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      width: 56px;
+      height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #c9d8e9;
+      border-radius: 12px;
+      background: rgba(255,255,255,.86);
+      color: var(--navy);
+      text-decoration: none;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+      background: #f5faff;
+    }
+
+    .social-links svg {
+      width: 27px;
+      height: 27px;
+      fill: currentColor;
     }
 
     h1 {
-      font-size: clamp(34px, 4vw, 58px);
-      line-height: 1.05;
-      color: #172554;
-      margin-bottom: 12px;
+      margin-top: 34px;
+      font-size: clamp(48px, 7vw, 78px);
+      line-height: .98;
+      letter-spacing: -2.8px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .accent {
+      width: 88px;
+      height: 6px;
+      margin-top: 14px;
+      border-radius: 99px;
+      background: var(--blue);
     }
 
     .role {
-      font-size: 20px;
-      color: #475569;
-      line-height: 1.5;
+      margin-top: 14px;
+      font-size: clamp(25px, 3vw, 35px);
+      line-height: 1.2;
+      color: #244b82;
+      font-weight: 400;
     }
 
+    /* ===== DETAILS ===== */
+
     .details {
+      margin-top: 38px;
       display: grid;
-      gap: 22px;
-      margin-bottom: 38px;
+      gap: 0;
     }
 
     .detail {
-      border-bottom: 1px solid #dbe1e8;
-      padding-bottom: 14px;
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      align-items: center;
+      column-gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail:first-child {
+      padding-top: 8px;
+    }
+
+    .detail:last-child {
+      border-bottom: none;
+    }
+
+    .detail-icon {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .detail-icon svg {
+      width: 31px;
+      height: 31px;
+      fill: currentColor;
     }
 
     .detail-label {
-      font-size: 12px;
+      font-size: 17px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #64748b;
-      margin-bottom: 6px;
+      letter-spacing: 3px;
+      color: #2879c5;
+      margin-bottom: 7px;
+      font-weight: 500;
     }
 
     .detail-value {
-      font-size: 17px;
-      color: #1e293b;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.4;
+      color: var(--navy);
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 8px;
+      gap: 12px;
     }
 
     .skill {
-      padding: 8px 13px;
-      border: 1px solid #cbd5e1;
+      padding: 10px 18px;
+      border: 1px solid var(--chip-border);
       border-radius: 999px;
-      font-size: 13px;
-      background: #f8fafc;
+      background: rgba(255,255,255,.72);
+      color: var(--navy);
+      font-size: 17px;
+      white-space: nowrap;
     }
 
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
+    /* ===== ACTION ===== */
 
-    .social-links a {
-      width: 38px;
-      height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #cbd5e1;
-      border-radius: 9px;
-      background: #fff;
-      color: #172554;
-      text-decoration: none;
-      transition: background .15s ease, border-color .15s ease, transform .15s ease;
-    }
-
-    .social-links a svg {
-      width: 19px;
-      height: 19px;
-      fill: currentColor;
-    }
-
-    .social-links a:hover {
-      background: #f8fafc;
-      border-color: #94a3b8;
-      transform: translateY(-1px);
+    .actions {
+      margin-left: 100px;
+      margin-top: 8px;
     }
 
     .download {
       display: inline-flex;
-      width: fit-content;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 13px 20px;
-      border-radius: 10px;
-      background: #172554;
-      color: white;
+      gap: 9px;
+      padding: 11px 18px;
+      border-radius: 9px;
+      background: var(--navy);
+      color: #fff;
       text-decoration: none;
-      font-size: 15px;
-      cursor: pointer;
-      border: none;
-      transition: transform .15s ease, background .15s ease;
+      font-size: 14px;
     }
 
     .download:hover {
-      background: #0f1d42;
-      transform: translateY(-1px);
+      background: #10204a;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 800px) {
+      .page {
+        width: 100%;
+        padding: 32px 28px;
+      }
+
+      .top-row {
+        align-items: flex-start;
+      }
+
+      .social-links a {
+        width: 42px;
+        height: 42px;
+      }
+
+      .social-links svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      h1 {
+        margin-top: 30px;
+        font-size: 52px;
+      }
+
+      .detail {
+        grid-template-columns: 58px 1fr;
+        column-gap: 12px;
+      }
+
+      .detail-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .detail-icon svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      .actions {
+        margin-left: 70px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 26px 20px 35px;
+      }
+
+      .top-row {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .social-links {
+        align-self: flex-start;
+      }
+
+      h1 {
+        font-size: 44px;
+        letter-spacing: -1.8px;
+      }
+
+      .role {
+        font-size: 24px;
+      }
+
+      .detail {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .detail-icon {
+        display: none;
+      }
+
+      .actions {
+        margin-left: 0;
+      }
+    }
+
+    /* ===== PROFILE LEFT / RESUME EDITOR RIGHT ===== */
+    .page {
+      width: min(1400px, calc(100% - 48px));
+      min-height: calc(100vh - 56px);
+      margin: 0 auto;
+      padding: 34px 44px 46px;
+      display: grid;
+      grid-template-columns: minmax(500px, 0.92fr) minmax(650px, 1.08fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .left {
+      grid-column: 1;
+      grid-row: 1;
+      min-width: 0;
+      align-self: start;
+    }
+
+    .left h1 {
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: -2px;
+      white-space: nowrap;
+    }
+
+    .left .role {
+      font-size: 23px;
+      margin-top: 11px;
+    }
+
+    .left .detail {
+      grid-template-columns: 66px minmax(0, 1fr);
+      column-gap: 16px;
+      padding: 16px 0;
+    }
+
+    .left .detail-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .left .detail-label {
+      font-size: 14px;
+      letter-spacing: 2.5px;
+    }
+
+    .left .detail-value {
+      font-size: 17px;
+      line-height: 1.42;
+    }
+
+    .left .skill {
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .left .actions {
+      margin-left: 82px;
+    }
+
+    .resume-card {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
+      align-self: start;
+    }
+
+    @media (max-width: 1200px) {
+      .page {
+        grid-template-columns: minmax(430px, 0.9fr) minmax(540px, 1.1fr);
+        gap: 32px;
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+      .left h1 { font-size: 48px; }
+      .left .detail-value { font-size: 16px; }
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        width: 100%;
+        min-height: auto;
+        padding: 25px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .left { grid-column: 1; grid-row: 1; }
+      .resume-card { grid-column: 1; grid-row: 2; }
     }
 
     /* RIGHT SIDE */
@@ -410,65 +684,208 @@
         min-height: 0;
       }
     }
-  </style>
+  
+    /* ===== FINAL GEOMETRY TUNING ===== */
+    .page {
+      width: 100%;
+      max-width: 1400px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 32px 44px 46px;
+      grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .left {
+      width: 100%;
+      min-width: 0;
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .left .intro {
+      margin-bottom: 28px;
+    }
+
+    .left .top-row {
+      width: 100%;
+    }
+
+    .left h1 {
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: -2px;
+      white-space: nowrap;
+    }
+
+    .left .role {
+      font-size: 23px;
+      line-height: 1.3;
+      margin-top: 11px;
+    }
+
+    .left .details {
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .left .detail {
+      grid-template-columns: 66px minmax(0, 1fr);
+      column-gap: 16px;
+      padding: 15px 0;
+      width: 100%;
+    }
+
+    .left .detail-value {
+      font-size: 17px;
+      line-height: 1.42;
+    }
+
+    .left .skill {
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .left .actions {
+      margin-left: 82px;
+      margin-top: 8px;
+    }
+
+    .resume-card {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 1000px) {
+      .page {
+        grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+        gap: 30px;
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+      .left h1 { font-size: 46px; }
+      .left .detail-value { font-size: 15.5px; }
+      .left .detail { grid-template-columns: 58px minmax(0, 1fr); column-gap: 13px; }
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .left { grid-column: 1; grid-row: 1; }
+      .resume-card { grid-column: 1; grid-row: 2; }
+    }
+
+
+    /* ===== DOWNLOAD BUTTON ALIGNMENT ===== */
+    .left .actions {
+      position: static;
+      margin: 10px 0 0 0;
+      padding: 0;
+      width: fit-content;
+      align-self: flex-start;
+    }
+
+    .left .actions .download {
+      margin: 0;
+      display: inline-flex;
+    }
+</style>
 </head>
-
 <body>
-
   <main class="page">
+    <div class="curve"></div>
+    <div class="dots top-right"></div>
+    <div class="dots bottom-left"></div>
 
-    <!-- LEFT SIDE -->
     <section class="left">
+    <section class="intro">
+      <div class="top-row">
+        <div class="eyebrow">DevOps Engineer</div>
 
-      <div class="intro">
-        <div class="eyebrow-row">
-          <div class="eyebrow">DevOps Engineer</div>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/mukulsengar/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.68H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45H7.1V8.98H3.54v11.47Z"/>
+            </svg>
+          </a>
 
-          <div class="social-links top-social" aria-label="Social links">
-            <a href="https://www.linkedin.com/in/mukulsengar/" target="_blank"
-               rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.68H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45H7.1V8.98H3.54v11.47Z"/>
-              </svg>
-            </a>
+          <a href="https://github.com/mukul-329"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.25.78-.55v-2.03c-3.18.69-3.85-1.34-3.85-1.34-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.73-1.54-2.54-.29-5.21-1.27-5.21-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.12 1.17A10.85 10.85 0 0 1 12 6.06c.97 0 1.94.13 2.85.38 2.17-1.48 3.12-1.17 3.12-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.23 5.65.41.35.78 1.04.78 2.1v3.11c0 .3.21.65.79.54A11.3 11.3 0 0 0 12 .7Z"/>
+            </svg>
+          </a>
 
-            <a href="https://github.com/mukul-329" target="_blank"
-               rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 .7a11.3 11.3 0 0 0-3.57 22.02c.57.1.78-.25.78-.55v-2.03c-3.18.69-3.85-1.34-3.85-1.34-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.95.1-.74.4-1.25.73-1.54-2.54-.29-5.21-1.27-5.21-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.12 1.17A10.85 10.85 0 0 1 12 6.06c.97 0 1.94.13 2.85.38 2.17-1.48 3.12-1.17 3.12-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.23 5.65.41.35.78 1.04.78 2.1v3.11c0 .3.21.65.79.54A11.3 11.3 0 0 0 12 .7Z"/>
-              </svg>
-            </a>
-
-            <a href="mailto:mukulsengar329@gmail.com" aria-label="Email" title="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
-              </svg>
-            </a>
-          </div>
+          <a href="mailto:mukulsengar329@gmail.com"
+             aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+            </svg>
+          </a>
         </div>
-
-        <h1>Hi, I am Mukul!</h1>
-        <p class="role">Open to Opportunities</p>
       </div>
 
-      <div class="details">
+      <h1>Hi, I am Mukul!</h1>
+      <div class="accent"></div>
+      <p class="role">Open to Opportunities</p>
 
-        <div class="detail">
+    <div class="actions">
+      <a class="download"
+         href="resume.pdf"
+         download="Mukul Anand Sengar.pdf"
+         title="Download Mukul Anand Sengar resume">
+        ↓ &nbsp; Download Resume
+      </a>
+    </div>
+    </section>
+
+    <section class="details">
+
+      <div class="detail">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12a4.2 4.2 0 1 0 0-8.4A4.2 4.2 0 0 0 12 12Zm0 2c-4.2 0-7.6 2.15-7.6 4.8V21h15.2v-2.2c0-2.65-3.4-4.8-7.6-4.8Z"/>
+          </svg>
+        </div>
+        <div>
           <div class="detail-label">About</div>
           <div class="detail-value">
             Cloud and DevOps professional with experience in AWS,
             Terraform, Docker, Kubernetes and CI/CD.
           </div>
         </div>
+      </div>
 
-        <div class="detail">
+      <div class="detail">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 1 0 9.54 13H19.4A7.5 7.5 0 1 1 17 7.6V10h5V5h-2.1v1.15A9.96 9.96 0 0 0 12 2Zm1 4h-2v7h6v-2h-4V6Z"/>
+          </svg>
+        </div>
+        <div>
           <div class="detail-label">Current Focus</div>
           <div class="detail-value">
             AWS · DevOps · Infrastructure · Automation
           </div>
         </div>
+      </div>
 
-        <div class="detail">
+      <div class="detail">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65-2-3.46-2.49 1a7.4 7.4 0 0 0-1.69-.98L15 3h-4l-.37 2.93c-.61.25-1.18.58-1.69.98l-2.49-1-2 3.46 2.11 1.65c-.04.32-.07.65-.07.98s.02.66.07.98l-2.11 1.65 2 3.46 2.49-1c.51.4 1.08.73 1.69.98L11 21h4l.37-2.93c.61-.25 1.18-.58 1.69-.98l2.49 1 2-3.46-2.12-1.65ZM13 15.5A3.5 3.5 0 1 1 13 8a3.5 3.5 0 0 1 0 7.5Z"/>
+          </svg>
+        </div>
+        <div>
           <div class="detail-label">Skills</div>
           <div class="skills">
             <span class="skill">AWS</span>
@@ -479,16 +896,12 @@
             <span class="skill">Linux</span>
           </div>
         </div>
-
       </div>
-
-      <!-- Replace resume.pdf with your actual PDF filename -->
-      <a class="download" href="resume.pdf" download="Mukul Anand Sengar.pdf" title="Download Mukul Anand Sengar resume">
-        ↓ &nbsp; Download Resume
-      </a>
 
     </section>
 
+
+    </section>
 
     <!-- RIGHT SIDE -->
     <section class="resume-card">
@@ -532,7 +945,6 @@
     </section>
 
   </main>
-
 
   <!-- PDF.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"
@@ -752,7 +1164,63 @@
         </head>
         <body>
           <div id="printPages"></div>
-        </body>
+        
+  <script>
+    /*
+      Force the portfolio Download Resume button to save the PDF
+      with the exact filename: Mukul Anand Sengar.pdf
+    */
+    (() => {
+      const resumeDownload = document.querySelector(".download");
+      if (!resumeDownload) return;
+
+      resumeDownload.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        const resumeUrl = new URL("./resume.pdf", window.location.href).href;
+        const fileName = "Mukul Anand Sengar.pdf";
+
+        try {
+          const response = await fetch(resumeUrl, {
+            method: "GET",
+            credentials: "same-origin",
+            cache: "no-store"
+          });
+
+          if (!response.ok) {
+            throw new Error(`Resume download failed: HTTP ${response.status}`);
+          }
+
+          const blob = await response.blob();
+          const blobUrl = URL.createObjectURL(blob);
+
+          const downloadLink = document.createElement("a");
+          downloadLink.href = blobUrl;
+          downloadLink.download = fileName;
+          downloadLink.style.display = "none";
+
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          downloadLink.remove();
+
+          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+        } catch (error) {
+          console.error("Resume download failed:", error);
+
+          // Fallback to the normal browser download behavior.
+          const fallback = document.createElement("a");
+          fallback.href = resumeUrl;
+          fallback.download = fileName;
+          fallback.style.display = "none";
+          document.body.appendChild(fallback);
+          fallback.click();
+          fallback.remove();
+        }
+      });
+    })();
+  </script>
+
+</body>
         </html>
       `);
       printWindow.document.close();
@@ -828,6 +1296,5 @@
     // Load resume.pdf automatically when the page opens.
     loadPdf(pdfUrl);
   </script>
-
 </body>
 </html>
