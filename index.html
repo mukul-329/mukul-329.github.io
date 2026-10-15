@@ -840,7 +840,7 @@
 
     <div class="actions">
       <a class="download"
-         href="./resume.pdf"
+         href="https://mukul-329.github.io/resume/resume.pdf"
          download="Mukul Anand Sengar.pdf"
          title="Download Mukul Anand Sengar resume">
         ↓ &nbsp; Download Resume
@@ -930,7 +930,7 @@
             <span id="zoomInfo">100%</span>
             <button id="zoomIn" type="button" title="Zoom in">+</button>
             <button id="printPdf" type="button" title="Print resume">🖨</button>
-            <a id="downloadPdf" href="resume.pdf"
+            <a id="downloadPdf" href="https://mukul-329.github.io/resume/resume.pdf"
                download="Mukul Anand Sengar.pdf"
                title="Download Mukul Anand Sengar resume">↓</a>
           </div>
@@ -980,7 +980,7 @@
     let pdfDoc = null;
     let currentPage = 1;
     let scale = 1;
-    let pdfUrl = "resume.pdf";
+    let pdfUrl = "https://mukul-329.github.io/resume/resume.pdf";
 
     async function loadPdf(source) {
       try {
@@ -1255,7 +1255,7 @@
 
       resumeDownload.addEventListener("click", async (event) => {
         event.preventDefault();
-        const resumeUrl = new URL("./resume.pdf", window.location.href).href;
+        const resumeUrl = new URL("https://mukul-329.github.io/resume/resume.pdf", window.location.href).href;
         const fileName = "Mukul Anand Sengar.pdf";
 
         try {
